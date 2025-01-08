@@ -1,0 +1,11 @@
+{
+  "sqltools.useNodeRuntime": true,
+  "sqltools.connections": [
+    {
+      "previewLimit": 40,
+      "driver": "SQLite",
+      "name": "f-exp",
+      "database": "${workspaceFolder:django-f-exp}/db.sqlite3"
+    }
+  ]
+}
