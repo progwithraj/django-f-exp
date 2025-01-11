@@ -53,7 +53,8 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    'orm',
+    'f_exp.apps.FExpConfig',
+    'q_exp.apps.QExpConfig',
 ]
 
 INSTALLED_APPS = [
@@ -73,7 +74,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'f_exp.urls'
+ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
     {

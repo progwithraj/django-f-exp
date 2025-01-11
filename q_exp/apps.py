@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class OrmConfig(AppConfig):
+class QExpConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'orm'
+    name = 'q_exp'
