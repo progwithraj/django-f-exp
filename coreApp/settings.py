@@ -10,10 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
-from pathlib import Path
-import sys
 import os
+import sys
+from pathlib import Path
+from dotenv import load_dotenv
+from .utility import convert_string_to_list
 from corsheaders.defaults import default_headers
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,18 +27,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-n%@u(12^e9&7gel#3%$)7*=$yz*xsuoqo61+9dmgf^(fgbsuh4'
+SECRET_KEY = os.environ.get("DJANGO_SECRET")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DJANGO_DEBUG")
 
-ALLOWED_HOSTS = [
-    "https://example.com",
-    "https://sub.example.com",
-    "http://localhost:8080",
-    "http://127.0.0.1:8000",
-]
-
+ALLOWED_HOSTS = convert_string_to_list(os.environ.get("DJANGO_ALLOWED_HOSTS_LIST"))
 
 # Application definition
 
@@ -48,10 +46,10 @@ BASE_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    # 'django_extensions',
-    # 'rest_framework',
-    # 'rest_framework.authtoken',
-    # 'corsheaders'
+    'django_extensions',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'corsheaders'
 ]
 
 LOCAL_APPS = [
@@ -169,6 +167,7 @@ if not TESTING:
 CORS_ALLOWED_ORIGINS = [
    *ALLOWED_HOSTS
 ]
+print("🐍 File: coreApp/settings.py | Line: 170 | undefined ~ ALLOWED_HOSTS",ALLOWED_HOSTS)
 CSRF_TRUSTED_ORIGINS = [
     *ALLOWED_HOSTS
 ]
