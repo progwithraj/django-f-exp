@@ -49,11 +49,11 @@ THIRD_PARTY_APPS = [
     'django_extensions',
     'rest_framework',
     'rest_framework.authtoken',
-    'django-cors-headers'
+    'corsheaders'
 ]
 
 LOCAL_APPS = [
-    'hello',
+    'orm',
 ]
 
 INSTALLED_APPS = [
